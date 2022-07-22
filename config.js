@@ -29,7 +29,7 @@ module.exports = {
     VERSION: 'V1.1.0 MD',
     BRANCH: 'main',
     GROUP: 'https://chat.whatsapp.com/ItIRSBUMN9t2lQzCpfAKWt',
-    LOG: "94769370897@s.whatsapp.net",
+    LOG: "94766598862@s.whatsapp.net",
     PROXY: db.getData('/PROXY'),
     SESSION: db.getData('/SESSION'),
     ANTILINK: db.getData('/ANTILINK'),
