@@ -3,8 +3,6 @@
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 if (fs.existsSync('cosec.env')) require('dotenv').config({ path: './cosec.env' });
-
-// Özel Fonksiyonlarımız
 function convertToBool(text, fault = 'true') {
     return text === fault ? true : false;
 }
