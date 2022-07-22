@@ -1,7 +1,7 @@
 var config = require('./config');
 var Commands = [];
 
-function getCMD(info, func) {
+function addCommand(info, func) {
     var types = ['photo', 'image', 'text', 'message'];
 
     var infos = {
@@ -36,6 +36,6 @@ function getCMD(info, func) {
 }
 
 module.exports = {
-    getCMD: getCMD,
+    addCommand: addCommand,
     commands: Commands
 }
