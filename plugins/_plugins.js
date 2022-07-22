@@ -27,11 +27,11 @@ const heroku = new Heroku({
 let baseURI = '/apps/' + cosec.HEROKU.APP_NAME;
 
 Neotro.addCommand({pattern: 'install ?(.*)', fromMe: true, desc: Lang.INSTALL_DESC, warn: Lang.WARN}, (async (message, match) => {
-    if (match[1] === '') return await message.sendMessage(Lang.NEED_URL + '.install https://gist.github.com/Neotro23/4232b1c8c4734e1f06c3d991149c6fbd')
+    if (match[1] === '') return message.client.sendMessage(message.jid, { text:Lang.NEED_URL + '.install https://gist.github.com/Neotro23/4232b1c8c4734e1f06c3d991149c6fbd'})
     try {
         var url = new URL(match[1]);
     } catch {
-        return await message.sendMessage(Lang.INVALID_URL);
+        return message.client.sendMessage(message.jid, { text:Lang.INVALID_URL});
     }
     
     if (url.host === 'gist.github.com') {
@@ -56,15 +56,14 @@ Neotro.addCommand({pattern: 'install ?(.*)', fromMe: true, desc: Lang.INSTALL_DE
             require('./' + plugin_name);
         } catch (e) {
             fs.unlinkSync('/root/queendianamd/plugins/' + plugin_name + '.js')
-            return await message.sendMessage(Lang.INVALID_PLUGIN + ' ```' + e + '```');
+            return message.client.sendMessage(message.jid, { text:Lang.INVALID_PLUGIN + ' ```' + e + '```'});
         }
 
-        await Db.installPlugin(url, plugin_name);
-        await message.client.sendMessage(message.jid, Lang.INSTALLED, MessageType.text);
+        //await Db.installPlugin(url, plugin_name);
+        message.client.sendMessage(message.jid, { text: Lang.INSTALLED});
         if (!match[1].includes('Neotro23')) {
             await new Promise(r => setTimeout(r, 400));
-            await message.client.sendMessage(message.jid, Lang.UNOFF, MessageType.text);
+            await message.client.sendMessage(message.jid, { text: Lang.UNOFF});
         }
     }
 }));
-
