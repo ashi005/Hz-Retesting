@@ -8,6 +8,7 @@ const simpleGit = require('simple-git');
 const git = simpleGit();
 const amazone = require('../events');
 const {MessageType,Mimetype} = require('@adiwajshing/baileys');
+const cosec = require('../cosec');
 const Config = require('../config');
 const exec = require('child_process').exec;
 const Heroku = require('heroku-client');
@@ -64,9 +65,9 @@ amazone.addCommand({pattern: 'update now$', fromMe: true, desc: Lang.UPDATE_NOW_
         );    
     } else {
         var guncelleme = await message.reply(Lang.UPDATING);
-        if (Config.HEROKU.HEROKU) {
+        if (cosec.HEROKU.HEROKU) {
             try {
-                var app = await heroku.get('/apps/' + Config.HEROKU.APP_NAME)
+                var app = await heroku.get('/apps/' + cosec.HEROKU.APP_NAME)
             } catch {
                 await message.client.sendMessage(
                     message.jid,Lang.INVALID_HEROKU, MessageType.text);
@@ -79,7 +80,7 @@ amazone.addCommand({pattern: 'update now$', fromMe: true, desc: Lang.UPDATE_NOW_
             git.reset('hard', ['FETCH_HEAD']);
 
             var git_url = app.git_url.replace(
-                "https://", "https://api:" + Config.HEROKU.API_KEY + "@"
+                "https://", "https://api:" + cosec.HEROKU.API_KEY + "@"
             )
             
             try {
