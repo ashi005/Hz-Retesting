@@ -4,7 +4,7 @@ you may not use this file except in compliance with the License.
 NEOTROX - TEENUHX
 */
 
-const config = require('../../config');
+const config = require('../../cosec');
 const { DataTypes } = require('sequelize');
 const PluginDB = config.DATABASE.define('Plugin', {
     name: {
