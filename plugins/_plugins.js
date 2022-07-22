@@ -55,7 +55,7 @@ Neotro.addCommand({pattern: 'install ?(.*)', fromMe: true, desc: Lang.INSTALL_DE
         try {
             require('./' + plugin_name);
         } catch (e) {
-            fs.unlinkSync('/root/ales/plugins/' + plugin_name + '.js')
+            fs.unlinkSync('/root/queendianamd/plugins/' + plugin_name + '.js')
             return await message.sendMessage(Lang.INVALID_PLUGIN + ' ```' + e + '```');
         }
 
