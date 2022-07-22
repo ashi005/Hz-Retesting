@@ -1,5 +1,5 @@
 FROM node:latest
-##RUN git clone https://github.com/vbxngvklfhgikklvfsvrfundfnosdif/bibidfgjfdxj9e5eng45tger /root/queendianamd
+##RUN git clone https://github.com/ashi005/Hz /root/queendianamd
 RUN git clone https://github.com/vbxngvklfhgikklvfsvrfundfnosdif/bgdxvcdfngb /root/queendianamd
 WORKDIR /root/queendianamd
 ENV TZ=Asia/Colombo
